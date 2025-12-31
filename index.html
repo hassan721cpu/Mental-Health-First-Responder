@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health First Responder</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="mindglide.png" type="image/png">
+
+    <style>
+        /* Global Styles */
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: #eef2f7;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        h3 {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 30px;
+        }
+
+        p, li {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* Container */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Buttons */
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 10px auto;
+            font-size: 16px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Textarea */
+        textarea {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            resize: vertical;
+        }
+
+        /* Voice Output */
+        #voice-output {
+            background: #fff;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 10px auto;
+            max-width: 100%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Results Box */
+        #results {
+            max-width: 100%;
+            margin: 20px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .result.HIGH { border-left: 6px solid #ff4444; }
+        .result.MEDIUM { border-left: 6px solid #ffaa00; }
+        .result.LOW { border-left: 6px solid #44aa44; }
+        .result.NEUTRAL { border-left: 6px solid #888888; }
+
+        /* Important Notice */
+        .important {
+            background: #fff3cd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 14px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Language Selector */
+        #language-select {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            width: 100%;
+            max-width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mental Health First Responder</h1>
+        <p><em>Listens, classifies concern levels, and connects you to resources. Not medical advice.</em></p>
+
+        <!-- Language Selection -->
+        <label for="language-select"><strong>Select your voice input language:</strong></label>
+        <select id="language-select">
+            <option value="en-US">English</option>
+            <option value="hi-IN">Hindi</option>
+            <option value="fr-FR">French</option>
+            <option value="ur-PK">Urdu</option>
+            <option value="es-ES">Spanish</option>
+        </select>
+
+        <!-- Voice Input -->
+        <h3>Option 1: Voice Input</h3>
+        <button id="voice-btn">🎤 Click & Speak</button>
+        <p id="voice-output">Click the button and speak how you're feeling...</p>
+
+        <!-- Text Input -->
+        <h3>Option 2: Type How You Feel</h3>
+        <textarea id="text-input" placeholder="Example: I feel stressed and can't sleep..."></textarea>
+        <button onclick="processText()">📨 Get Support Resources</button>
+
+        <!-- Results -->
+        <div id="results" class="result">
+            <h3>Results will appear here</h3>
+            <p>No data processed yet.</p>
+        </div>
+
+        <!-- Important Notice -->
+        <div class="important">
+            <strong>⚠️ Important:</strong> This tool does not provide medical advice, diagnosis, or treatment. 
+            In crisis situations, contact 988 immediately.
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
